@@ -4,7 +4,7 @@
     {
         public Student()
         {
-            StudentGroups = new HashSet<StudentGroup>();   
+            StudentGroups = new HashSet<StudentGroup>();
             Attendances = new HashSet<Attendance>();
         }
         public int Id { get; set; }

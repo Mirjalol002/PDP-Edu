@@ -15,7 +15,7 @@
         public DateTime EndDate { get; set; }
 
         public User Teacher { get; set; }
-        
+
         public ICollection<Lesson> Lessons { get; set; }
         public ICollection<StudentGroup> StudentGroups { get; set; }
     }
