@@ -1,6 +1,9 @@
 ﻿namespace PDP_Edu.Domain.Enums
 {
-    internal class UserRole
+    public enum UserRole
     {
+        Admin = 1,
+        Teacher = 2,
+        Assitsent = 3
     }
 }
