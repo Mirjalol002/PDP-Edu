@@ -5,7 +5,11 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDP-Edu.Api", "PDP-Edu.Api\PDP-Edu.Api.csproj", "{117B8B32-B07C-46C4-AE35-206D3F026688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDP-Edu.Domain", "PDP-Edu.Domain\PDP-Edu.Domain.csproj", "{79F33B1F-07F7-40B2-842F-35033B94A1CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDP-Edu.Domain", "PDP-Edu.Domain\PDP-Edu.Domain.csproj", "{79F33B1F-07F7-40B2-842F-35033B94A1CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDP-Edu.Application", "PDP-Edu.Application\PDP-Edu.Application.csproj", "{D73B643D-51B6-4B73-ACC4-B957DE96D015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDP-Edu.Infrastructure", "PDP-Edu.Infrastructure\PDP-Edu.Infrastructure.csproj", "{4FAD7FE5-B433-4750-98D6-75221FEF105C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{79F33B1F-07F7-40B2-842F-35033B94A1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79F33B1F-07F7-40B2-842F-35033B94A1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79F33B1F-07F7-40B2-842F-35033B94A1CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73B643D-51B6-4B73-ACC4-B957DE96D015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73B643D-51B6-4B73-ACC4-B957DE96D015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73B643D-51B6-4B73-ACC4-B957DE96D015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73B643D-51B6-4B73-ACC4-B957DE96D015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FAD7FE5-B433-4750-98D6-75221FEF105C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FAD7FE5-B433-4750-98D6-75221FEF105C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FAD7FE5-B433-4750-98D6-75221FEF105C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FAD7FE5-B433-4750-98D6-75221FEF105C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
