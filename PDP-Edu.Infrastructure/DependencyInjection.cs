@@ -1,14 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using PDP_Edu.Application.Abstractions;
+using PDP_Edu.Domain.Enums;
 using PDP_Edu.Infrastructure.Abstractions;
 using PDP_Edu.Infrastructure.Persistance;
 using PDP_Edu.Infrastructure.Providers;
 using PDP_Edu.Infrastructure.Services;
-using PDP_Edu.Domain.Enums;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 
 namespace PDP_Edu.Infrastructure
