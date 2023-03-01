@@ -1,5 +1,5 @@
-﻿using PDP_Edu.Domain.Entities;
-using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using PDP_Edu.Domain.Entities;
 
 namespace PDP_Edu.Application.Abstractions
 {
