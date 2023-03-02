@@ -1,6 +1,8 @@
-﻿namespace PDP_Edu.Application.Abstractions
+﻿using PDP_Edu.Application.Models.Teacher;
+
+namespace PDP_Edu.Application.Abstractions
 {
-    public interface ITeacherService
+    public interface ITeacherService : ICrudService<int, TeacherViewModel, CreateTeacherModel, UpdateTeacherModel>
     {
     }
 }

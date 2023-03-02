@@ -1,10 +1,8 @@
-﻿using PDP_Edu.Application.Models;
+﻿using PDP_Edu.Application.Models.Student;
 
 namespace PDP_Edu.Application.Abstractions
 {
-    public interface IStudentService
+    public interface IStudentService : ICrudService<int, StudentViewModel, CreateStudentModel, UpdateStudentModel>
     {
-        Task<LessonViewModel> GetAllAsync(LessonViewModel model);
-
     }
 }

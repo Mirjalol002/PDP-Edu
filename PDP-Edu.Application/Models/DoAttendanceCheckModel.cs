@@ -4,6 +4,6 @@
     {
         public int LessonId { get; set; }
 
-        public List<AttendanceCheckModel> AttendanceChecks { get; set; }
+        public List<AttendanceCheckModel> Checks { get; set; }
     }
 }
