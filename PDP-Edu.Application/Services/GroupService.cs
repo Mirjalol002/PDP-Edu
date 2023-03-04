@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using PDP_Edu.Application.Abstractions;
 using PDP_Edu.Application.Models;
 using PDP_Edu.Application.Models.Group;
@@ -9,23 +10,27 @@ namespace PDP_Edu.Application.Services
     public class GroupService : IGroupService
     {
         private readonly IApplicationDbContext _context;
-        public GroupService(IApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public GroupService(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // 1 
         public async Task<GroupViewModel> GetByIdAsync(int id)
         {
             var entity = await _context.Groups.FirstOrDefaultAsync(x => x.Id == id);
-            return new GroupViewModel()
-            {
-                Id = entity!.Id,
-                Name = entity.Name,
-                TeacherId = entity.TeacherId,
-                StartedDate = entity.StartDate,
-                EndDate = entity.EndDate
-            };
+            //return new GroupViewModel()
+            //{
+            //    Id = entity!.Id,
+            //    Name = entity.Name,
+            //    TeacherId = entity.TeacherId,
+            //    StartedDate = entity.StartDate,
+            //    EndDate = entity.EndDate
+            //};
+
+            return _mapper.Map<GroupViewModel>(entity);
         }
 
         // 2 
@@ -45,13 +50,15 @@ namespace PDP_Edu.Application.Services
         // 3
         public async Task CreateAsync(CreateGroupModel entity)
         {
-            var entities = new Group()
-            {
-                Name = entity.Name,
-                TeacherId = entity.TeacherId,
-                StartDate = entity.StartedDate.ToDateTime(TimeOnly.MinValue),
-                EndDate = entity.EndDate.ToDateTime(TimeOnly.MaxValue),
-            };
+            //var entities = new Group()
+            //{
+            //    Name = entity.Name,
+            //    TeacherId = entity.TeacherId,
+            //    StartDate = entity.StartedDate.ToDateTime(TimeOnly.MinValue),
+            //    EndDate = entity.EndDate.ToDateTime(TimeOnly.MaxValue),
+            //};
+
+            var entities = _mapper.Map<Group>(entity);
             _context.Groups.Add(entities);
             var lessons = CreateLessons(entities, entity.LessonStartTime, entity.LessonEndTime);
             _context.Lessons.AddRange(lessons);
@@ -61,16 +68,16 @@ namespace PDP_Edu.Application.Services
         // 4
         public async Task UpdateAsync(UpdateGroupModel entity)
         {
-            var entities = await _context.Groups.Include(x => x.Lessons).FirstOrDefaultAsync(x => x.Id == entity.Id);
-            if (entities == null)
+            var group = await _context.Groups.Include(x => x.Lessons).FirstOrDefaultAsync(x => x.Id == entity.Id);
+            if (group == null)
             {
                 throw new Exception("Not found");
             }
 
-            entities.Name = entity.Name ?? entities.Name;
-            entities.TeacherId = entity.TeacherId ?? entities.TeacherId;
-
-            _context.Groups.Update(entities);
+            //entities.Name = entity.Name ?? entities.Name;
+            //entities.TeacherId = entity.TeacherId ?? entities.TeacherId;
+            group = _mapper.Map(entity, group);
+            _context.Groups.Update(group);
             await _context.SaveChangesAsync();
         }
 
@@ -96,6 +103,7 @@ namespace PDP_Edu.Application.Services
                 StartDateTime = x.StartedDateTime,
                 EndDateTime = x.EndDateTime
             }).ToListAsync();
+
         }
 
         // 7

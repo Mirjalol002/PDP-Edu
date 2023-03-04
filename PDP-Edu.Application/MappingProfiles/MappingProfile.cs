@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PDP_Edu.Application.Abstractions;
+using PDP_Edu.Application.Models.Student;
 using PDP_Edu.Application.Models.Teacher;
 using PDP_Edu.Domain.Entities;
 using PDP_Edu.Domain.Enums;
@@ -10,6 +11,7 @@ namespace PDP_Edu.Application.MappingProfiles
     {
         public MappingProfile(IHashProvider hashProvider)
         {
+            // teacher 
             CreateMap<User, TeacherViewModel>();
 
             CreateMap<CreateTeacherModel, User>()
@@ -23,6 +25,11 @@ namespace PDP_Edu.Application.MappingProfiles
                         ? entity.PasswordHash
                         : hashProvider.GetHash(model.Password);
                 });
+
+            //  student 
+            CreateMap<Student, StudentViewModel>();
+            CreateMap<CreateStudentModel, Student>();
+                
         }
     }
 }
